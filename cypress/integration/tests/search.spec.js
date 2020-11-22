@@ -60,4 +60,15 @@ describe('Search', () => {
             .clickSearchCloseButton()
             .validateTipLabel("Search for any place or what3words address e.g.")
     })
+
+    it(`Validate different browser language - ar`, () => {
+        let w3w = 'covers.archive.folds'
+        searchPage
+            .openUrl('')
+            .setCookies('ar')
+            .enterW3wTerm(w3w)
+            .submitW3wTerm(w3w)
+            .validateW3wPrepopulated(w3w)
+            .validatePageUrl(w3w)    
+     })
 })

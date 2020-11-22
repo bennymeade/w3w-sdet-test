@@ -8,10 +8,17 @@ export default class Base {
         return this;
     }
 
-    setCookies() {
+    setCookies(language) {
         Cypress.Cookies.debug(true)
-        cy.setCookie('threewordaddress_language', 'en')
-        cy.setCookie('site_language', 'en')
+        cy.clearCookies()
+        if(language=='ar') {
+            cy.setCookie('threewordaddress_language', language)
+            cy.setCookie('site_language', language)
+        }
+        else {
+            cy.setCookie('threewordaddress_language', 'en')
+            cy.setCookie('site_language', 'en')
+        }
         cy.setCookie('onboarding-done', 'search')
         cy.setCookie('onboarding-variant', 'basic')
         cy.setCookie('IS_COOKIE_NOTICE_CLOSED', 'true')
