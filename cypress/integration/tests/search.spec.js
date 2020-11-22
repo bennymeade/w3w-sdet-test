@@ -70,5 +70,5 @@ describe('Search', () => {
             .submitW3wTerm(w3w)
             .validateW3wPrepopulated(w3w)
             .validatePageUrl(w3w)    
-     })
+    })
 })

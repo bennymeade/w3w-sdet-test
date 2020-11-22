@@ -1,5 +1,5 @@
 // @ts-nocheck
-import Base from './base.page';
+import Base from '../pages/base.page';
 
 const searchTextbox = '[data-testid="SearchPanel-InputBlur"]'
 const resultOption = 'div.SearchPanel-LocationLine1'
