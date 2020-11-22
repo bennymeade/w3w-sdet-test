@@ -11,6 +11,7 @@ export default class Base {
     setCookies() {
         Cypress.Cookies.debug(true)
         cy.setCookie('IS_COOKIE_NOTICE_CLOSED', 'true', { domain: Cypress.config('baseUrl').replace("https://", ""), path: '/' })
+        cy.setCookie('onboarding-done', 'search', { domain: Cypress.config('baseUrl').replace("https://", ""), path: '/' })
         cy.reload()
         return this;
     }

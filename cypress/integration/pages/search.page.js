@@ -13,6 +13,12 @@ class Search extends Base {
         return this;
     }
 
+    submitW3wTerm(text) {
+        cy.get(searchTextbox).type(text)
+        cy.get('.SearchPanel-ResultItem > [data-testid=ThreeWordAddress] > .ThreeWordAddress-Content > ' + w3wText).contains(text).click()
+        return this;
+    }
+
     validateW3wPrepopulated(text) {
         cy.get(w3wText)
             .should('contain', text)
