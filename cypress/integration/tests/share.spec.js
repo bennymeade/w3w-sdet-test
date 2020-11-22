@@ -8,21 +8,30 @@ describe('Share', () => {
         searchPage
             .openUrl('/dress.sharp.brave')
             .setCookies()
+        sharePage.clickShareTab()
     })
 
     const areas = ['Facebook', 'WhatsApp', 'Twitter', 'CopyLink', 'MailTo'];
 
     areas.forEach(area => {
         it(`Validate links for external site sharing - ${area}`, () => {
-            sharePage
-                .clickShareTab() 
-                .validateExternalSiteLinks(`${area}`)
+            sharePage.validateExternalSiteLinks(`${area}`)
             })
         })
     
     it(`Validate default sharing content`, () => {
+        sharePage.validateShareContentTitle("This is an example of what you'll share")
+    })
+
+    it(`Validate Customise Share Settings`, () => {
         sharePage
-            .clickShareTab()
-            .validateShareContentTitle("This is an example of what you'll share")
+            .selectCustomiseShareSettings()
+            .toggleAndValidateShareContentSettingsList("3 Word Address")
+            .toggleAndValidateShareContentSettingsList("Explainer Text")
+            .toggleAndValidateShareContentSettingsList("Latitude & Longitude")
+    })
+
+    it(`Validate share button colour`, () => {
+        sharePage.validateSectionColour('[data-testid="ActionPanel-Share"]', '#005379')
     })
 })

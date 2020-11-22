@@ -1,4 +1,6 @@
 // @ts-nocheck
+import chaiColors from 'chai-colors'
+chai.use(chaiColors)
 
 // common methods are placed in base page class
 export default class Base {
@@ -28,6 +30,13 @@ export default class Base {
 
     validatePageUrl(url) {
         cy.url().should('include', Cypress.config('baseUrl') + '/' + url)
+        return this;
+    }
+
+    validateSectionColour(selector, colour) {
+        cy.get(selector)
+            .should('have.css', 'background-color')
+            .and('be.colored', colour)
         return this;
     }
 }

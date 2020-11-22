@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/bennymeade/w3w-sdet-test#readme",
   "devDependencies": {
+    "chai-colors": "^1.0.1",
     "cypress": "^5.6.0"
   }
 }
