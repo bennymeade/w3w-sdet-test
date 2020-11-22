@@ -1,0 +1,9 @@
+{
+    "baseUrl": "https://what3words.com",
+    "integrationFolder": "./cypress/integration/tests/",
+    "chromeWebSecurity": false,
+    "viewportWidth": 1280,
+    "viewportHeight": 1000,
+    "nodeVersion": "system",
+    "video": false
+}
